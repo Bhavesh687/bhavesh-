@@ -1,0 +1,143 @@
+import time
+
+
+def slow_print(text, delay=1):
+    """Print text with a delay for dramatic effect."""
+    for char in text:
+        print(char, end='', flush=True)
+        time.sleep(0.05)
+    print()
+    time.sleep(delay)
+
+
+def intro():
+    slow_print("You find yourself standing at the edge of a dark forest.")
+    slow_print("The trees are tall and foreboding, and a cold wind blows through the leaves.")
+    slow_print("You have two choices: enter the forest or turn back to the village.")
+
+    choice = input("Do you enter the forest or turn back? (Enter/Turn back): ").lower()
+    if choice == "enter":
+        forest_path()
+    elif choice == "turn back":
+        village_path()
+    else:
+        slow_print("That's not a valid choice. Please type 'Enter' or 'Turn back'.")
+        intro()
+
+
+def forest_path():
+    slow_print("You step cautiously into the forest. The air grows colder as you walk deeper.")
+    slow_print("Suddenly, you hear a rustling sound behind you!")
+    slow_print("You have two choices: investigate the noise or keep walking.")
+
+    choice = input("Do you investigate or keep walking? (Investigate/Keep walking): ").lower()
+    if choice == "investigate":
+        investigate_noise()
+    elif choice == "keep walking":
+        keep_walking()
+    else:
+        slow_print("That's not a valid choice. Please type 'Investigate' or 'Keep walking'.")
+        forest_path()
+
+
+def village_path():
+    slow_print("You decide to turn back and head towards the village.")
+    slow_print("As you walk away from the forest, you feel a sense of relief.")
+    slow_print("However, you can't shake the feeling that something is watching you from the trees.")
+    slow_print("You eventually return to the safety of the village and live a peaceful life... for now.")
+    slow_print("THE END")
+    play_again()
+
+
+def investigate_noise():
+    slow_print("You turn around to investigate the noise.")
+    slow_print("Out of the shadows steps a mysterious figure. It's a traveler, like yourself!")
+    slow_print("The traveler warns you that the forest is dangerous and offers you two choices:")
+    slow_print("1. Join them on their journey deeper into the forest.")
+    slow_print("2. Refuse their offer and leave the forest immediately.")
+
+    choice = input("Do you join the traveler or leave? (Join/Leave): ").lower()
+    if choice == "join":
+        slow_print("You and the traveler venture deeper into the forest...")
+        deep_forest()
+    elif choice == "leave":
+        slow_print("You decide to leave the forest and head back to the village.")
+        village_path()
+    else:
+        slow_print("That's not a valid choice. Please type 'Join' or 'Leave'.")
+        investigate_noise()
+
+
+def keep_walking():
+    slow_print("You decide to keep walking through the forest.")
+    slow_print("The trees seem to close in around you, and the path gets darker.")
+    slow_print("Suddenly, you stumble upon a hidden cave entrance.")
+    slow_print("You have two choices: enter the cave or keep walking.")
+
+    choice = input("Do you enter the cave or keep walking? (Enter/Keep walking): ").lower()
+    if choice == "enter":
+        cave_path()
+    elif choice == "keep walking":
+        slow_print("You continue walking until the path becomes impassable. Eventually, you return to the village.")
+        village_path()
+    else:
+        slow_print("That's not a valid choice. Please type 'Enter' or 'Keep walking'.")
+        keep_walking()
+
+
+def cave_path():
+    slow_print("You enter the cave, the air is damp and cold. It's eerily quiet.")
+    slow_print("Suddenly, you hear a rumbling sound and the ground shakes!")
+    slow_print("A giant rock creature emerges from the shadows and blocks the entrance.")
+    slow_print("You have two choices: fight the creature or try to escape.")
+
+    choice = input("Do you fight or escape? (Fight/Escape): ").lower()
+    if choice == "fight":
+        slow_print("You bravely stand your ground and face the creature...")
+        slow_print("After a long battle, you defeat the creature and escape the cave!")
+        slow_print("You continue your journey and eventually find treasure hidden deep in the forest!")
+        slow_print("Congratulations, you've completed the adventure!")
+    elif choice == "escape":
+        slow_print("You attempt to escape, but the creature catches you!")
+        slow_print("You are defeated and fall unconscious.")
+        slow_print("THE END")
+    else:
+        slow_print("That's not a valid choice. Please type 'Fight' or 'Escape'.")
+        cave_path()
+
+
+def deep_forest():
+    slow_print("You follow the traveler deep into the forest.")
+    slow_print("After hours of walking, you come to a mystical clearing with a glowing tree.")
+    slow_print("The traveler explains that the tree grants wishes, but only one wish can be made.")
+    slow_print("You have two choices: make a wish or leave the tree alone.")
+
+    choice = input("Do you make a wish or leave? (Wish/Leave): ").lower()
+    if choice == "wish":
+        slow_print("You make a wish for wealth and power.")
+        slow_print(
+            "The tree grants your wish, but the magic comes at a cost. You become cursed, forever hunted by shadows.")
+        slow_print("THE END")
+    elif choice == "leave":
+        slow_print("You decide not to risk making a wish and leave the tree alone.")
+        slow_print("The traveler thanks you and says goodbye, and you make your way back to the village.")
+        village_path()
+    else:
+        slow_print("That's not a valid choice. Please type 'Wish' or 'Leave'.")
+        deep_forest()
+
+
+def play_again():
+    choice = input("Would you like to play again? (Yes/No): ").lower()
+    if choice == "yes":
+        intro()
+    elif choice == "no":
+        slow_print("Thanks for playing! Goodbye.")
+    else:
+        slow_print("That's not a valid choice. Please type 'Yes' or 'No'.")
+        play_again()
+
+
+if __name__ == "__main__":
+    intro()
+
